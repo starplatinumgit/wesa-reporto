@@ -17,6 +17,7 @@ daySelect.addEventListener("change", (e) => {
 });
 
 const renderDayWeather = function (dayValue) {
+  wipeDayWeather();
   let currentDay = weather.get1DayOfWeather(dayValue);
   for (let hour of currentDay.hours) {
     let hourCard = tools.createElement("div", "hour-card", weatherDiv);
@@ -27,7 +28,13 @@ const renderDayWeather = function (dayValue) {
     let tempDiv = tools.createElement("div", "temp-div", hourCard);
     let tempP = tools.createElement("p", "hour-temp", tempDiv);
     let precipP = tools.createElement("p", "hour-precip", tempDiv);
-    tempP.textContent = hour.temp;
-    precipP.textContent = hour.precipprob;
+    tempP.textContent = "temp: " + hour.temp;
+    precipP.textContent = "chance of rain: " + hour.precipprob;
+  }
+};
+
+const wipeDayWeather = function () {
+  while (weatherDiv.firstChild) {
+    weatherDiv.removeChild(weatherDiv.firstChild);
   }
 };

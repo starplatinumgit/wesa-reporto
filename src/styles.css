@@ -131,3 +131,11 @@ body {
   flex-direction: column;
   gap: 3px;
 }
+
+.hour-card {
+  background-color: white;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding: 3px;
+}
