@@ -74,6 +74,60 @@ h6 {
   isolation: isolate;
 }
 
+/* --------------------------------------------------------------------------------------------------- */
+
+/* fonts */
+
+.source-code-pro {
+  font-family: "Source Code Pro", monospace;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+/* --------------------------------------------------------------------------------------------------- */
+
 body {
+  display: grid;
+  grid-template-columns: 2fr 1fr 2fr;
+  background-color: #ececdb;
+  color: #000000;
+  font-family: "Source Code Pro";
+}
+
+#everything-container {
+  grid-column-start: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+#title-div {
   font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  color: #631916;
+}
+
+#search-form {
+  display: flex;
+}
+
+#search-input {
+  width: 100%;
+  border: 1px solid black;
+}
+
+#search-button {
+  border: 1px solid black;
+}
+
+#day-select {
+  width: 100%;
+}
+
+#weather-div {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
 }
