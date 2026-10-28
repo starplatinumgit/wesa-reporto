@@ -89,7 +89,7 @@ h6 {
 
 body {
   display: grid;
-  grid-template-columns: 2fr 1fr 2fr;
+  grid-template-columns: 1fr 1fr 1fr;
   background-color: #ececdb;
   color: #000000;
   font-family: "Source Code Pro";
@@ -135,7 +135,8 @@ body {
 .hour-card {
   background-color: white;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 4fr;
   align-items: center;
   padding: 3px;
+  justify-items: center;
 }

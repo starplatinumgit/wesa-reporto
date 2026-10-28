@@ -7,14 +7,30 @@ const weatherDiv = document.getElementById("weather-div");
 const daySelect = document.getElementById("day-select");
 
 searchForm.addEventListener("submit", async (e) => {
-  e.preventDefault();
-  await weather.set5DaysOfWeather(searchInput.value);
+  try {
+    e.preventDefault();
+    await weather.set5DaysOfWeather(searchInput.value);
+    enableDaySelect();
+    wipeDayWeather();
+    renderDayWeather(daySelect.value);
+  } catch (error) {
+    console.log(error + "hi");
+    wipeDayWeather();
+    disableDaySelect();
+  }
 });
 
 daySelect.addEventListener("change", (e) => {
-  console.log(daySelect.value);
   renderDayWeather(daySelect.value);
 });
+
+const enableDaySelect = function () {
+  daySelect.disabled = false;
+};
+
+export const disableDaySelect = function () {
+  daySelect.disabled = true;
+};
 
 const renderDayWeather = function (dayValue) {
   wipeDayWeather();
@@ -29,7 +45,7 @@ const renderDayWeather = function (dayValue) {
     let tempP = tools.createElement("p", "hour-temp", tempDiv);
     let precipP = tools.createElement("p", "hour-precip", tempDiv);
     tempP.textContent = "temp: " + hour.temp;
-    precipP.textContent = "chance of rain: " + hour.precipprob;
+    precipP.textContent = "chance of rain: " + hour.precipprob + "%";
   }
 };
 

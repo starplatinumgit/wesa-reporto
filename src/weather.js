@@ -1,26 +1,21 @@
-export const set5DaysOfWeather = async function (countryName) {
-  try {
-    let weatherJson = await fetch(
-      "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/" +
-        countryName +
-        "/next4days?key=9YNV997J74YLARMW63KAUGHJT&include=hours,days&elements=datetime,tempmax,tempmin,temp,precipprob,conditions",
-    );
-    let weatherObject = await weatherJson.json();
-    setCurrentWeatherObject(weatherObject);
-    console.log(currentWeatherObject);
-  } catch (error) {
-    console.log(error);
-  }
-};
-
 let currentWeatherObject = undefined;
+
+const get5DaysOfWeather = async function (locationName) {
+  let weatherJson = await fetch(
+    "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/" +
+      locationName +
+      "/next4days?unitGroup=metric&key=9YNV997J74YLARMW63KAUGHJT&include=hours,days&elements=datetime,tempmax,tempmin,temp,precipprob,conditions",
+  );
+  let weatherObject = await weatherJson.json();
+  return weatherObject;
+};
 
 export const get1DayOfWeather = function (dayNum) {
   return currentWeatherObject.days[dayNum];
 };
 
-export const setCurrentWeatherObject = function (weatherObject) {
-  currentWeatherObject = weatherObject;
+export const set5DaysOfWeather = async function (locationName) {
+  currentWeatherObject = await get5DaysOfWeather(locationName);
 };
 
 // export const printWeather = async function (countryName) {
