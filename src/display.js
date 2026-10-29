@@ -1,6 +1,16 @@
 import * as weather from "./weather.js";
 import * as tools from "./tools.js";
 
+import snow from "./weather-icons/snow.svg";
+import rain from "./weather-icons/rain.svg";
+import fog from "./weather-icons/fog.svg";
+import wind from "./weather-icons/wind.svg";
+import cloudy from "./weather-icons/cloudy.svg";
+import partlyCloudyDay from "./weather-icons/partly-cloudy-day.svg";
+import partlyCloudyNight from "./weather-icons/partly-cloudy-night.svg";
+import clearDay from "./weather-icons/clear-day.svg";
+import clearNight from "./weather-icons/clear-night.svg";
+
 const searchForm = document.getElementById("search-form");
 const searchInput = document.getElementById("search-input");
 const weatherDiv = document.getElementById("weather-div");
@@ -55,8 +65,17 @@ const renderDayWeather = function (dayValue) {
   todayDate.textContent = "date: " + currentDay.datetime;
   todayMin.textContent = "min temp: " + currentDay.tempmin;
   todayMax.textContent = "max temp: " + currentDay.tempmax;
-  todayPrecip.textContent = "rain chance" + currentDay.precipprob + "%";
+  todayPrecip.textContent = "rain chance: " + currentDay.precipprob + "%";
   todayConditions.textContent = "conditions: " + currentDay.conditions;
+
+  let weatherIconDiv = tools.createElement("div", "weather-icon-div", todayDiv);
+  let weatherIcon = tools.createElement(
+    "img",
+    "weather-icon-svg",
+    weatherIconDiv,
+  );
+  console.log(currentDay.icon);
+  weatherIcon.src = weatherIcons[`${currentDay.icon}`];
 
   for (let hour of currentDay.hours) {
     let hourCard = tools.createElement("div", "hour-card", weatherDiv);
@@ -76,4 +95,16 @@ const wipeDiv = function (div) {
   while (div.firstChild) {
     div.removeChild(div.firstChild);
   }
+};
+
+const weatherIcons = {
+  snow: snow,
+  rain: rain,
+  fog: fog,
+  wind: wind,
+  cloudy: cloudy,
+  "partly-cloudy-day": partlyCloudyDay,
+  "partly-cloudy-night": partlyCloudyNight,
+  "clear-day": clearDay,
+  "clear-night": clearNight,
 };

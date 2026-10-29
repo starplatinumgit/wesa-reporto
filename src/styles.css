@@ -140,7 +140,7 @@ body {
 
 #today-div {
   display: grid;
-  grid-template-columns: 3fr 1fr;
+  grid-template-columns: 2fr 1fr;
   align-items: center;
   padding: 5px;
   border-radius: 4px;
@@ -151,6 +151,13 @@ body {
 .today-info-div {
   display: flex;
   flex-direction: column;
+  padding: 20px 40px;
+  font-size: 1.2rem;
+}
+
+.weather-icon-svg {
+  height: 100px;
+  width: 100px;
 }
 
 #weather-div {

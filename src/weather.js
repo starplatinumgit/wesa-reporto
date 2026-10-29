@@ -4,7 +4,7 @@ const get5DaysOfWeather = async function (locationName) {
   let weatherJson = await fetch(
     "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/" +
       locationName +
-      "/next4days?unitGroup=metric&key=9YNV997J74YLARMW63KAUGHJT&include=hours,days&elements=datetime,tempmax,tempmin,temp,precipprob,conditions",
+      "/next4days?unitGroup=metric&iconSet=icons1&key=9YNV997J74YLARMW63KAUGHJT&include=hours,days&elements=datetime,tempmax,tempmin,temp,precipprob,conditions,icon",
   );
   if (!weatherJson.ok) {
     throw new Error("Error: " + weatherJson.status);
