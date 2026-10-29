@@ -93,6 +93,7 @@ body {
   background-color: #ececdb;
   color: #000000;
   font-family: "Source Code Pro";
+  background-image: url(windowsGruv.png);
 }
 
 #everything-container {
@@ -106,7 +107,7 @@ body {
   font-size: 2rem;
   display: flex;
   justify-content: center;
-  color: #631916;
+  color: #cc241d;
 }
 
 #search-form {
@@ -115,15 +116,26 @@ body {
 
 #search-input {
   width: 100%;
-  border: 1px solid black;
+  border: none;
+  background-color: #fbf1c7;
+  color: #79740e;
+  padding: 5px;
 }
 
 #search-button {
-  border: 1px solid black;
+  border: none;
+  background-color: #d5c4a1;
 }
 
 #day-select {
   width: 100%;
+  border: none;
+  background-color: #fbf1c7;
+  color: #79740e;
+  padding: 5px;
+}
+
+#today-div {
 }
 
 #weather-div {
@@ -133,7 +145,7 @@ body {
 }
 
 .hour-card {
-  background-color: white;
+  background-color: #ebdbb2;
   display: grid;
   grid-template-columns: 1fr 4fr;
   align-items: center;

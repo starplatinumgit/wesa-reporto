@@ -6,6 +6,9 @@ const get5DaysOfWeather = async function (locationName) {
       locationName +
       "/next4days?unitGroup=metric&key=9YNV997J74YLARMW63KAUGHJT&include=hours,days&elements=datetime,tempmax,tempmin,temp,precipprob,conditions",
   );
+  if (!weatherJson.ok) {
+    throw new Error("Error: " + weatherJson.status);
+  }
   let weatherObject = await weatherJson.json();
   return weatherObject;
 };

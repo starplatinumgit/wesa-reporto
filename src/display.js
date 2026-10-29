@@ -5,17 +5,18 @@ const searchForm = document.getElementById("search-form");
 const searchInput = document.getElementById("search-input");
 const weatherDiv = document.getElementById("weather-div");
 const daySelect = document.getElementById("day-select");
+const todayDiv = document.getElementById("today-div");
 
 searchForm.addEventListener("submit", async (e) => {
   try {
     e.preventDefault();
     await weather.set5DaysOfWeather(searchInput.value);
     enableDaySelect();
-    wipeDayWeather();
+    wipeDiv(weatherDiv);
     renderDayWeather(daySelect.value);
   } catch (error) {
     console.log(error + "hi");
-    wipeDayWeather();
+    wipeDiv(weatherDiv);
     disableDaySelect();
   }
 });
@@ -33,7 +34,7 @@ export const disableDaySelect = function () {
 };
 
 const renderDayWeather = function (dayValue) {
-  wipeDayWeather();
+  wipeDiv(weatherDiv);
   let currentDay = weather.get1DayOfWeather(dayValue);
   for (let hour of currentDay.hours) {
     let hourCard = tools.createElement("div", "hour-card", weatherDiv);
@@ -49,8 +50,8 @@ const renderDayWeather = function (dayValue) {
   }
 };
 
-const wipeDayWeather = function () {
-  while (weatherDiv.firstChild) {
-    weatherDiv.removeChild(weatherDiv.firstChild);
+const wipeDiv = function (div) {
+  while (div.firstChild) {
+    div.removeChild(div.firstChild);
   }
 };
