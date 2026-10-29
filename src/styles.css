@@ -120,11 +120,13 @@ body {
   background-color: #fbf1c7;
   color: #79740e;
   padding: 5px;
+  border-radius: 4px;
 }
 
 #search-button {
   border: none;
-  background-color: #d5c4a1;
+  background-color: #ddc697;
+  border-radius: 4px;
 }
 
 #day-select {
@@ -133,9 +135,22 @@ body {
   background-color: #fbf1c7;
   color: #79740e;
   padding: 5px;
+  border-radius: 4px;
 }
 
 #today-div {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  align-items: center;
+  padding: 5px;
+  border-radius: 4px;
+  opacity: 79%;
+  background-color: #ebdbb2;
+}
+
+.today-info-div {
+  display: flex;
+  flex-direction: column;
 }
 
 #weather-div {
@@ -151,4 +166,6 @@ body {
   align-items: center;
   padding: 3px;
   justify-items: center;
+  border-radius: 4px;
+  opacity: 79%;
 }

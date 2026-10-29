@@ -17,6 +17,10 @@ export const get1DayOfWeather = function (dayNum) {
   return currentWeatherObject.days[dayNum];
 };
 
+export const getCurrentLocation = function () {
+  return currentWeatherObject.resolvedAddress;
+};
+
 export const set5DaysOfWeather = async function (locationName) {
   currentWeatherObject = await get5DaysOfWeather(locationName);
 };

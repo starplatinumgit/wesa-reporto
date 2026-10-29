@@ -35,7 +35,29 @@ export const disableDaySelect = function () {
 
 const renderDayWeather = function (dayValue) {
   wipeDiv(weatherDiv);
+  wipeDiv(todayDiv);
+
   let currentDay = weather.get1DayOfWeather(dayValue);
+
+  let todayInfoDiv = tools.createElement("div", "today-info-div", todayDiv);
+  let todayLocation = tools.createElement("p", "today-location", todayInfoDiv);
+  let todayDate = tools.createElement("p", "today-date", todayInfoDiv);
+  let todayMin = tools.createElement("p", "today-min", todayInfoDiv);
+  let todayMax = tools.createElement("p", "today-max", todayInfoDiv);
+  let todayPrecip = tools.createElement("p", "today-precip", todayInfoDiv);
+  let todayConditions = tools.createElement(
+    "p",
+    "today-conditions",
+    todayInfoDiv,
+  );
+
+  todayLocation.textContent = "location: " + weather.getCurrentLocation();
+  todayDate.textContent = "date: " + currentDay.datetime;
+  todayMin.textContent = "min temp: " + currentDay.tempmin;
+  todayMax.textContent = "max temp: " + currentDay.tempmax;
+  todayPrecip.textContent = "rain chance" + currentDay.precipprob + "%";
+  todayConditions.textContent = "conditions: " + currentDay.conditions;
+
   for (let hour of currentDay.hours) {
     let hourCard = tools.createElement("div", "hour-card", weatherDiv);
 
