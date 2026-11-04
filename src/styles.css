@@ -175,8 +175,21 @@ body {
   justify-items: center;
   border-radius: 4px;
   opacity: 79%;
+  position: relative;
 }
 
 .current-time {
-  background-color: red;
+  animation: blink 9s infinite;
+}
+
+@keyframes blink {
+  0% {
+    background-color: #ebdbb2;
+  }
+  50% {
+    background-color: #c58280;
+  }
+  100% {
+    background-color: #ebdbb2;
+  }
 }
