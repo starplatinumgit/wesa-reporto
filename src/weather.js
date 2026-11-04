@@ -25,35 +25,12 @@ export const set5DaysOfWeather = async function (locationName) {
   currentWeatherObject = await get5DaysOfWeather(locationName);
 };
 
-// export const printWeather = async function (countryName) {
-//   let weatherObject = await get5DaysOfWeather(countryName);
-//   console.log("Country: " + weatherObject.resolvedAddress);
-//   console.log("------------------------------------------------------");
-
-//   for (const day of weatherObject.days) {
-//     console.log(`Date: ` + day.datetime);
-//     console.log(`Min temp: ` + day.tempmin);
-//     console.log(`Max temp: ` + day.tempmax);
-//     console.log(`Precipitation: ` + day.precipprob);
-//     console.log(`Conditions: ` + day.conditions);
-//     console.log("------------------------------------------------------");
-//   }
-// };
-
-// export const printWeatherDay = async function (dayIndex) {
-//   let currentWeatherDay = currentWeatherObject.days[dayIndex];
-//   console.log(currentWeatherObject.resolvedAddress);
-//   console.log("Date: " + currentWeatherDay.datetime);
-//   console.log("Max Temp: " + currentWeatherDay.tempmax);
-//   console.log("Min Temp: " + currentWeatherDay.tempmin);
-//   console.log(`Precipitation: ` + day.precipprob);
-//   console.log(`Conditions: ` + day.conditions);
-//   console.log("------------------------------------------------------");
-
-//   for (let hour of currentWeatherDay.hours) {
-//     console.log(hour.datetime);
-//     console.log(hour.temp);
-//     console.log(hour.precipprob);
-//     console.log("------------------------------------------------------");
-//   }
-// };
+export const getCurrentWeatherTime = function () {
+  const formatter = new Intl.DateTimeFormat("en-US", {
+    timeZone: currentWeatherObject.timezone,
+    hour: "2-digit",
+    hour12: false,
+  });
+  let currentTime = formatter.format(new Date());
+  return currentTime;
+};

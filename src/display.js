@@ -27,6 +27,7 @@ searchForm.addEventListener("submit", async (e) => {
   } catch (error) {
     console.log(error + "hi");
     wipeDiv(weatherDiv);
+    wipeDiv(todayDiv);
     disableDaySelect();
   }
 });
@@ -88,6 +89,11 @@ const renderDayWeather = function (dayValue) {
     let precipP = tools.createElement("p", "hour-precip", tempDiv);
     tempP.textContent = "temp: " + hour.temp;
     precipP.textContent = "chance of rain: " + hour.precipprob + "%";
+
+    if (hour.datetime.slice(0, 2) === weather.getCurrentWeatherTime()) {
+      hourCard.classList.add("current-time");
+      console.log(hour);
+    }
   }
 };
 

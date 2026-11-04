@@ -176,3 +176,7 @@ body {
   border-radius: 4px;
   opacity: 79%;
 }
+
+.current-time {
+  background-color: red;
+}
