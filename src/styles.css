@@ -89,11 +89,13 @@ h6 {
 
 body {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr minmax(400px, 1.2fr) 1fr;
+  grid-template-rows: auto min-content;
   background-color: #ececdb;
   color: #000000;
   font-family: "Source Code Pro";
   background-image: url(windowsGruv.png);
+  min-height: 100vh;
 }
 
 #everything-container {
@@ -210,10 +212,30 @@ body {
   0% {
     background-color: #ebdbb2;
   }
-  50% {
+  25% {
+    background-color: #e3aead;
+  }
+  75% {
     background-color: #e3aead;
   }
   100% {
     background-color: #ebdbb2;
   }
+}
+
+#footer {
+  background-color: rgb(136, 143, 130);
+  opacity: 50%;
+  grid-row-start: 2;
+  grid-column: span 3;
+  text-align: center;
+  font-size: 0.8rem;
+  margin-top: 10px;
+  text-decoration: none;
+  color: black;
+}
+
+#footer a {
+  text-decoration: none;
+  color: black;
 }

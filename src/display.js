@@ -69,8 +69,10 @@ const renderDayWeather = function (dayValue) {
 
   todayLocation.textContent = "location: " + weather.getCurrentLocation();
   todayDate.textContent = "date: " + currentDay.datetime;
-  todayMin.textContent = "min temp: " + currentDay.tempmin;
-  todayMax.textContent = "max temp: " + currentDay.tempmax;
+  todayMin.textContent =
+    "min temp: " + currentDay.tempmin + unitToggleButton.textContent;
+  todayMax.textContent =
+    "max temp: " + currentDay.tempmax + unitToggleButton.textContent;
   todayPrecip.textContent = "rain chance: " + currentDay.precipprob + "%";
   todayConditions.textContent = "conditions: " + currentDay.conditions;
 
