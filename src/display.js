@@ -25,9 +25,10 @@ searchForm.addEventListener("submit", async (e) => {
     wipeDiv(weatherDiv);
     renderDayWeather(daySelect.value);
   } catch (error) {
-    console.log(error + "hi");
     wipeDiv(weatherDiv);
     wipeDiv(todayDiv);
+    console.log(error + "hi");
+    todayDiv.textContent = error;
     disableDaySelect();
   }
 });

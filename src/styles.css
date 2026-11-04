@@ -142,7 +142,6 @@ body {
   display: grid;
   grid-template-columns: 2fr 1fr;
   align-items: center;
-  padding: 5px;
   border-radius: 4px;
   opacity: 79%;
   background-color: #ebdbb2;
@@ -187,7 +186,7 @@ body {
     background-color: #ebdbb2;
   }
   50% {
-    background-color: #c58280;
+    background-color: #e3aead;
   }
   100% {
     background-color: #ebdbb2;
