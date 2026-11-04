@@ -110,8 +110,14 @@ body {
   color: #cc241d;
 }
 
+#search-div {
+  display: flex;
+  flex-direction: row;
+}
+
 #search-form {
   display: flex;
+  flex-grow: 1;
 }
 
 #search-input {
@@ -120,13 +126,32 @@ body {
   background-color: #fbf1c7;
   color: #79740e;
   padding: 5px;
-  border-radius: 4px;
+  border-radius: 4px 0px 0px 4px;
+  flex-grow: 1;
+}
+
+#search-input:focus {
+  outline: none;
 }
 
 #search-button {
   border: none;
   background-color: #ddc697;
-  border-radius: 4px;
+  text-align: center;
+}
+
+#unit-toggle-button {
+  border: none;
+  background-color: #ddc697;
+  border-radius: 0px 4px 4px 0px;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+#unit-toggle-button:hover,
+#search-button:hover {
+  cursor: pointer;
+  background-color: #ccb890;
 }
 
 #day-select {

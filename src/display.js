@@ -16,10 +16,15 @@ const searchInput = document.getElementById("search-input");
 const weatherDiv = document.getElementById("weather-div");
 const daySelect = document.getElementById("day-select");
 const todayDiv = document.getElementById("today-div");
+const unitToggleButton = document.getElementById("unit-toggle-button");
 
 searchForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  await setRender5DaysOfWeather();
+});
+
+const setRender5DaysOfWeather = async function () {
   try {
-    e.preventDefault();
     await weather.set5DaysOfWeather(searchInput.value);
     enableDaySelect();
     wipeDiv(weatherDiv);
@@ -27,11 +32,10 @@ searchForm.addEventListener("submit", async (e) => {
   } catch (error) {
     wipeDiv(weatherDiv);
     wipeDiv(todayDiv);
-    console.log(error + "hi");
     todayDiv.textContent = error;
     disableDaySelect();
   }
-});
+};
 
 daySelect.addEventListener("change", (e) => {
   renderDayWeather(daySelect.value);
@@ -88,7 +92,7 @@ const renderDayWeather = function (dayValue) {
     let tempDiv = tools.createElement("div", "temp-div", hourCard);
     let tempP = tools.createElement("p", "hour-temp", tempDiv);
     let precipP = tools.createElement("p", "hour-precip", tempDiv);
-    tempP.textContent = "temp: " + hour.temp;
+    tempP.textContent = "temp: " + hour.temp + unitToggleButton.textContent;
     precipP.textContent = "chance of rain: " + hour.precipprob + "%";
 
     if (hour.datetime.slice(0, 2) === weather.getCurrentWeatherTime()) {
@@ -115,3 +119,11 @@ const weatherIcons = {
   "clear-day": clearDay,
   "clear-night": clearNight,
 };
+
+unitToggleButton.addEventListener("click", async (e) => {
+  let unit = weather.toggleUnit();
+  unitToggleButton.textContent = unit;
+  if (weather.searchActive()) {
+    await setRender5DaysOfWeather(daySelect.value);
+  }
+});
